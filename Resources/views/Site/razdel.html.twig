@@ -1,0 +1,7 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+    {% for cat in category.getChildren %}
+        <a href="{{ path('site_shop_category', {'slug':cat.getSlug}) }}">{{ cat.getName }}</a><br>
+    {% endfor %}
+{% endblock %}

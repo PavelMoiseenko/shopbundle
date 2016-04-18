@@ -1,0 +1,13 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+    <h1>{{ message }}</h1>
+    {% for product in products %}
+        <a href="{{ path('site_shop_editprod', {'id': product.id }) }}">{{ product.title }}</a><br>
+    {% endfor %}
+    
+    
+    
+    
+    
+{% endblock %}

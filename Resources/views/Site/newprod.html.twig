@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+    <form method="post" action=" {{ path('site_shop_addprod') }} ">
+        <h1>Форма добавления товара по имени категории</h1>
+        <label><input type="text" name="title">Наименование товара</label><br><br>
+        <label><input type="text" name="description">Описание товара</label><br><br>
+        <label><input type="text" name="price">Цена</label><br><br>
+        <label><input type="text" name="brend">Бренд</label><br>
+        <input type="hidden" name="category_slug" value="{{ category_slug }}"><br>
+        <input type="submit" value="Добавить товар">
+    </form><br>
+    
+    
+    
+    
+{% endblock %}

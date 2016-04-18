@@ -1,0 +1,31 @@
+{% extends '::base.html.twig' %}
+
+
+{% block content %}
+    <h1 style="color:#FF0000">КОРЗИНА</h1>
+    <form method="POST" action='{{ path('site_shop_cartOrder') }}'>
+    <table>
+        <tr>
+            <th>Фото товара</th>
+            <th>Наименование продукта</th>
+            <th colspan='2'>Цена</th>
+        </tr>
+    {% set sum = 0 %}
+    {% for product in products %}
+        <tr>
+            <td><img src="{{ asset(product.getPhoto.getAddress) }}"/></td>
+            <td>{{ product.title }}</td>
+            <td>{{ product.price }}</td>
+            <td><input type='hidden' value='{{ product.id }}' name='cartProductsId[]'/></td>
+        </tr>
+        {% set sum = sum+product.price %}
+    {% endfor %}
+    <tr>
+        <td>Итого</td>
+        <td colspan='3'>{{ sum }}</td>
+    </tr>
+    </table>
+        <input type="submit" value="Оформить заказ"/>
+    </form><br>
+  
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+    <h1>{{ category.getName }}</h1>
+   {% for product in category.getProduct %}
+       <a href="{{ path('site_shop_product', {'id':product.getId}) }}">{{ product }}<br></a>
+   {% endfor %} 
+{% endblock %}

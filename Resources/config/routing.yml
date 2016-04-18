@@ -1,0 +1,47 @@
+site_shop_main:
+    path:     /main
+    defaults: { _controller: SiteShopBundle:Site:main }
+    
+site_shop_razdel:
+    path:     /razdel/{slug}
+    defaults: { _controller: SiteShopBundle:Site:razdel }
+
+site_shop_products:
+    path:     /products
+    defaults: { _controller: SiteShopBundle:Site:products }
+
+site_shop_category:
+    path:     /category/{slug}
+    defaults: { _controller: SiteShopBundle:Site:category }
+    
+site_shop_product:
+    path:     /product/{id}
+    defaults: { _controller: SiteShopBundle:Site:product}
+    
+site_shop_cart:
+    path:     /cart
+    defaults: { _controller: SiteShopBundle:Site:cart}
+    
+site_shop_cartOrder:
+    path:     /cartOrder
+    defaults: { _controller: SiteShopBundle:Site:cartOrder}
+    
+site_shop_parameters:
+    path:     /parameters
+    defaults: { _controller: SiteShopBundle:Site:parameters}
+
+site_shop_newprod:
+    path:     /newprod/{slug}
+    defaults: { _controller: SiteShopBundle:Site:newprod}
+    
+site_shop_addprod:
+    path:     /addprod
+    defaults: { _controller: SiteShopBundle:Site:addprod}
+    
+site_shop_editprod:
+    path:     /editprod/{id}
+    defaults: { _controller: SiteShopBundle:Site:editprod}
+    
+site_shop_saveprod:
+    path:     /saveprod/{id}
+    defaults: { _controller: SiteShopBundle:Site:saveprod}

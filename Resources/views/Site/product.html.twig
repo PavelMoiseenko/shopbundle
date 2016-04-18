@@ -1,0 +1,53 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+    <h1 class='title'>{{ product.getTitle }}</h1>
+    <table>
+        <tr>
+            <td><img src="{{ asset( product.getPhoto.getAddress ) }}" width="91" height="105" alt="iPod" /></td>
+            <td> 
+                <ul>
+                    <li>Описание товара: {{product.getDescription}}</li>
+                    <li>ЦЕНА: {{product.getPrice}}</li>
+                    <li>Фирма изготовитель: {{product.getBrend}}</li>
+                </ul>
+            </td>
+            
+        </tr>
+        
+    </table>
+   
+    <a href="javascript:void(0)" onclick="buy_one_photo({{product.id}});">Купить {{product.price}}$</a>
+           
+    <script>
+        function buy_one_photo(ph_id){    
+            //console.log(ph_id);
+            $.ajax({
+                type: "GET",
+                url: "{{ path('ajax_add_to_cart') }}?id="+ph_id,
+                success: function(data)
+                {
+                    
+                    $('h1.title').html(data.message);
+                    
+                    //location.reload();
+                }
+              });
+            }
+
+    </script>
+    <form method='post'>
+        <textarea name = 'comment' cols='40' rows='10' placeholder='Добавить комментарий'></textarea><br><br>
+        <input type="submit" value="Добавить комментарий" name='submit'/><br>
+    </form><br>
+    <h1 style="color:red">{{ message }}</h1>
+    <h3>Все комментарии о продукте:</h3>
+    <ul>
+        {% for comment in product.getComment %}
+            <li>{{ comment }}</li>
+        {% endfor %}
+    </ul>
+    
+            
+   
+{% endblock %}

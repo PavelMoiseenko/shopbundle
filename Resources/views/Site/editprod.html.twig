@@ -1,0 +1,16 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+    <form method="post" action='{{ path('site_shop_saveprod', {'id':product.id}) }}' >
+        <h1>Форма для редактирования товара</h1>
+        <label><input type="text" name="title" value="{{ product.title }}">Наименование продукта</label><br><br>
+        <label><input type="text" name="description" value='{{ product.description }}'>Описание</label><br><br>
+        <label><input type="text" name="price" value='{{ product.price }}'>Цена</label><br><br>
+        <label><input type="text" name="brend" value='{{ product.brend}}'>Бренд</label><br><br>
+        
+        <input type="submit" value="Сохранить изменения">
+    </form><br>
+    
+    
+    
+{% endblock %}
